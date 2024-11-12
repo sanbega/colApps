@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { FaInstagram } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa6";
 
 export default function Home() {
   return (
     <div className="bg-white">
-      {/* Sección de Héroe */}
-      <section className="bg-gradient-to-r from-pink-500 to-purple-500 py-20 text-center text-white">
+      <section className="bg-gradient-to-r from-pink-500 to-purple-600 py-20 text-center text-white">
         <Image
           src="/images/Logocompleto.png"
           alt="Logo de Belleza Natural"
@@ -12,37 +14,44 @@ export default function Home() {
           height={150}
           className="mx-auto mb-6"
         />
-        <h1 className="text-5xl font-bold mb-4">Shineth</h1>
-        <p className="text-lg mb-8">
-          Descubre nuestros productos faciales premium
-        </p>
-        <button className="bg-white text-purple-500 font-semibold py-2 px-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-200">
+        <p className="text-lg mb-8">Welcome to Shineth</p>
+        {/* <button className="bg-white text-purple-500 font-semibold py-2 px-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-200">
           Iniciar Secion
-        </button>
+        </button> */}
       </section>
 
       {/* Sección de Productos */}
       <section className="py-16">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Nuestros Productos</h2>
+          <h2 className="text-4xl font-bold mb-8">Our Products</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Producto 1 */}
-            <div className="border rounded-lg shadow-lg overflow-hidden">
+            <div
+              className="border rounded-lg shadow-lg overflow-hidden"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <img
                 src="https://via.placeholder.com/300"
                 alt="Producto 1"
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-bold">Crema Hidratante</h3>
+                <h3 className="text-xl font-bold">Moisturizing Cream</h3>
                 <p className="text-gray-600">$25.00</p>
-                <button className="mt-4 bg-pink-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 hover:bg-pink-600">
-                  Añadir al Carrito
+                <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+                  Add to Cart
                 </button>
               </div>
             </div>
             {/* Producto 2 */}
-            <div className="border rounded-lg shadow-lg overflow-hidden">
+            <div
+              className="border rounded-lg shadow-lg overflow-hidden"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <img
                 src="https://via.placeholder.com/300"
                 alt="Producto 2"
@@ -51,13 +60,18 @@ export default function Home() {
               <div className="p-4">
                 <h3 className="text-xl font-bold">Serum Facial</h3>
                 <p className="text-gray-600">$30.00</p>
-                <button className="mt-4 bg-pink-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 hover:bg-pink-600">
-                  Añadir al Carrito
+                <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+                  Add to Cart
                 </button>
               </div>
             </div>
             {/* Producto 3 */}
-            <div className="border rounded-lg shadow-lg overflow-hidden">
+            <div
+              className="border rounded-lg shadow-lg overflow-hidden"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <img
                 src="https://via.placeholder.com/300"
                 alt="Producto 3"
@@ -66,12 +80,11 @@ export default function Home() {
               <div className="p-4">
                 <h3 className="text-xl font-bold">Mascarilla Facial</h3>
                 <p className="text-gray-600">$20.00</p>
-                <button className="mt-4 bg-pink-500 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 hover:bg-pink-600">
-                  Añadir al Carrito
+                <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+                  Add to Cart
                 </button>
               </div>
             </div>
-            {/* Más productos... */}
           </div>
         </div>
       </section>
@@ -79,64 +92,144 @@ export default function Home() {
       {/* Sección de Servicios */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Nuestros Servicios</h2>
+          <h2 className="text-4xl font-bold mb-8">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white border rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold">Faciales Personalizados</h3>
-              <p className="text-gray-600 mt-2">
-                Diseñados para tu tipo de piel.
-              </p>
+            <div
+              className="bg-white border rounded-lg shadow-lg p-6"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-xl font-bold">Customized Facials</h3>
+              <p className="text-gray-600 mt-2">Designed for your skin type.</p>
             </div>
-            <div className="bg-white border rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold">Tratamientos Antiedad</h3>
-              <p className="text-gray-600 mt-2">Ayuda a rejuvenecer tu piel.</p>
+            <div
+              className="bg-white border rounded-lg shadow-lg p-6"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-xl font-bold">Anti-Aging Treatments</h3>
+              <p className="text-gray-600 mt-2">Helps rejuvenate your skin.</p>
             </div>
-            <div className="bg-white border rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold">Limpieza Facial Profunda</h3>
+            <div
+              className="bg-white border rounded-lg shadow-lg p-6"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-xl font-bold">Deep Facial Cleansing</h3>
               <p className="text-gray-600 mt-2">
-                Elimina impurezas y rejuvenece tu rostro.
+                Eliminates impurities and rejuvenates your face.
               </p>
             </div>
           </div>
         </div>
       </section>
+      <section className="py-16 bg-gray-50 text-gray-800">
+        <div className="container mx-auto max-w-lg text-center">
+          <h2 className="text-4xl font-bold mb-8 text-pink-600">
+            Schedule Your Appointment
+          </h2>
+          <form className="bg-white shadow-lg rounded-lg p-8 space-y-6">
+            <div className="text-left">
+              <label
+                className="block text-gray-700 font-semibold mb-2"
+                htmlFor="date"
+              >
+                Choose a Date
+              </label>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                required
+              />
+            </div>
 
-      {/* Sección de Testimonios */}
-      <section className="py-16">
+            <div className="text-left">
+              <label
+                className="block text-gray-700 font-semibold mb-2"
+                htmlFor="time"
+              >
+                Choose a Time
+              </label>
+              <input
+                type="time"
+                id="time"
+                name="time"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-pink-500"
+                required
+              />
+            </div>
+            <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+              Schedule Appointment
+            </button>
+          </form>
+
+          <div className="mt-8">
+            <h3 className="text-xl font-semibold text-gray-700">
+              Proceed with Payment
+            </h3>
+            <p className="text-gray-500 mb-4">
+              After scheduling, complete your booking by paying securely through
+              our payment gateway.
+            </p>
+            <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+              Go to Payment
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-gradient-to-b from-white to-white">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Testimonios de Clientes</h2>
+          <h2 className="text-4xl font-extrabold mb-12 text-gray-800">
+            Customer Testimonials
+          </h2>
           <div className="flex flex-col space-y-8">
-            <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+            <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg border-l-4 border-pink-500 transform hover:-translate-y-2 transition duration-300">
               <p className="text-gray-700 italic">
-                "¡Me encanta este serum! Mi piel nunca ha estado tan radiante."
+                “I love this serum! My skin has never been so radiant.”
               </p>
-              <p className="mt-4 font-semibold">- Ana P.</p>
+              <p className="mt-4 font-semibold text-pink-600">- Ana P.</p>
             </div>
-            <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
+            <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg border-l-4 border-pink-500 transform hover:-translate-y-2 transition duration-300">
               <p className="text-gray-700 italic">
-                "La crema hidratante es increíble. La recomiendo a todos."
+                “The moisturizer is amazing. I recommend it to everyone.”
               </p>
-              <p className="mt-4 font-semibold">- Laura G.</p>
+              <p className="mt-4 font-semibold text-pink-600">- Laura G.</p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Sección de Galería */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-gradient-to-r from-pink-100 via-purple-100 to-pink-100">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Galería de Imágenes</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <div>
+          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 mb-8">
+            Treatment Gallery
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div
+              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <Image
-                src="/images/galeria1.jpg" // Asegúrate de tener estas imágenes en la carpeta public
+                src="/images/galeria1.jpg"
                 alt="Imagen 1"
                 width={300}
                 height={200}
                 className="rounded-lg"
               />
             </div>
-            <div>
+            <div
+              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <Image
                 src="/images/galeria2.jpg"
                 alt="Imagen 2"
@@ -145,7 +238,12 @@ export default function Home() {
                 className="rounded-lg"
               />
             </div>
-            <div>
+            <div
+              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <Image
                 src="/images/galeria3.jpg"
                 alt="Imagen 3"
@@ -154,7 +252,40 @@ export default function Home() {
                 className="rounded-lg"
               />
             </div>
-            <div>
+            <div
+              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <Image
+                src="/images/galeria4.jpg"
+                alt="Imagen 4"
+                width={300}
+                height={200}
+                className="rounded-lg"
+              />
+            </div>
+            <div
+              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <Image
+                src="/images/galeria4.jpg"
+                alt="Imagen 4"
+                width={300}
+                height={200}
+                className="rounded-lg"
+              />
+            </div>
+            <div
+              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
               <Image
                 src="/images/galeria4.jpg"
                 alt="Imagen 4"
@@ -166,104 +297,159 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="py-16">
+      <section className="py-16 bg-white text-gray-800">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Preguntas Frecuentes</h2>
-          <div className="max-w-2xl mx-auto">
-            <div className="mb-4">
-              <h3 className="font-semibold">¿Cómo puedo hacer un pedido?</h3>
-              <p className="text-gray-600">
-                Puedes hacer un pedido directamente desde nuestra tienda en
-                línea.
+          <h2 className="text-4xl font-extrabold mb-12 text-gray-800">
+            Frequently Asked Questions
+          </h2>
+          <div className="max-w-2xl mx-auto space-y-8">
+            <div
+              className="bg-pink-50 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-2xl font-semibold text-pink-600 mb-2">
+                How can I place an order?
+              </h3>
+              <p className="text-gray-700">
+                You can place an order directly from our online store.
               </p>
             </div>
-            <div className="mb-4">
-              <h3 className="font-semibold">¿Hacen envíos internacionales?</h3>
-              <p className="text-gray-600">
-                Sí, realizamos envíos a varios países. Verifica si tu país está
-                en la lista durante el checkout.
+            <div
+              className="bg-pink-50 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-2xl font-semibold text-pink-600 mb-2">
+                Do you ship internationally?
+              </h3>
+              <p className="text-gray-700">
+                Yes, we ship to several countries. Check if your country is on
+                the list during checkout.
               </p>
             </div>
-            <div className="mb-4">
-              <h3 className="font-semibold">¿Qué métodos de pago aceptan?</h3>
-              <p className="text-gray-600">
-                Aceptamos tarjetas de crédito, PayPal y transferencias
-                bancarias.
+            <div
+              className="bg-pink-50 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out transform hover:scale-105"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-2xl font-semibold text-pink-600 mb-2">
+                What payment methods do you accept?
+              </h3>
+              <p className="text-gray-700">
+                We accept credit cards, PayPal, and bank transfers.
               </p>
             </div>
           </div>
         </div>
       </section>
+
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Contáctanos</h2>
+          <h2 className="text-4xl font-bold mb-8">Contact us at</h2>
           <p className="text-lg mb-4">
-            ¿Tienes preguntas o comentarios? ¡Nos encantaría saber de ti!
+            If you have any questions or comments, we'd love to hear from you!
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white border rounded-lg shadow-lg p-6">
+            <div
+              className="bg-white border rounded-lg shadow-lg p-6"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)", // sombra color rosa
+              }}
+            >
               <h3 className="text-xl font-semibold mb-4">
-                Información de Contacto
+                Contact Information
               </h3>
               <p className="text-gray-600">
                 <strong>Email:</strong> contacto@bellezanatural.com
               </p>
               <p className="text-gray-600">
-                <strong>Teléfono:</strong> +123 456 7890
+                <strong>Phone:</strong> (646)233-3602
               </p>
               <p className="text-gray-600">
-                <strong>Dirección:</strong> Calle de la Belleza 123, Ciudad,
-                País
+                <strong>Address:</strong> 28-07 Jackson Avenue, Long Island City
+                NY 11101
               </p>
-
               <h3 className="text-xl font-semibold mt-6 mb-4">
-                Síguenos en Redes Sociales
-              </h3>
-              <div className="flex justify-center space-x-4">
-                <a href="#" className="text-blue-500 hover:text-blue-700">
-                  Facebook
+                Follow us on Social Networks
+              </h3>{" "}
+              <div className="flex justify-center space-x-6">
+                <a
+                  href="https://www.facebook.com/shineth.cosmedic.5"
+                  className="relative text-pink-500 hover:text-white rounded-full p-4 bg-white transition duration-500 transform hover:scale-110"
+                  style={{
+                    boxShadow: "0 0 15px rgba(255, 105, 180, 0.5)",
+                    border: "2px solid rgba(255, 105, 180, 0.7)",
+                    animation:
+                      "bounceSpin 2s infinite ease-in-out, pulseBorder 2s infinite ease-in-out",
+                  }}
+                >
+                  <FaFacebook size={24} />
                 </a>
-                <a href="#" className="text-pink-500 hover:text-pink-700">
-                  Instagram
+                <a
+                  href="https://www.instagram.com/shinethcosmedic/"
+                  className="relative text-pink-500 hover:text-white rounded-full p-4 bg-white transition duration-500 transform hover:scale-110"
+                  style={{
+                    boxShadow: "0 0 15px rgba(255, 105, 180, 0.5)",
+                    border: "2px solid rgba(255, 105, 180, 0.7)",
+                    animation:
+                      "bounceSpin 2s infinite ease-in-out, pulseBorder 2s infinite ease-in-out",
+                  }}
+                >
+                  <FaInstagram size={24} />
                 </a>
-                <a href="#" className="text-blue-400 hover:text-blue-600">
-                  Twitter
+                <a
+                  href="#"
+                  className="relative text-pink-500 hover:text-white rounded-full p-4 bg-white transition duration-500 transform hover:scale-110"
+                  style={{
+                    boxShadow: "0 0 15px rgba(255, 105, 180, 0.5)",
+                    border: "2px solid rgba(255, 105, 180, 0.7)",
+                    animation:
+                      "bounceSpin 2s infinite ease-in-out, pulseBorder 2s infinite ease-in-out",
+                  }}
+                >
+                  <FaTiktok size={24} />
                 </a>
               </div>
             </div>
-
-            <div className="bg-white border rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">Envía un Mensaje</h3>
+            <div
+              className="bg-white border rounded-lg shadow-lg p-6"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <h3 className="text-xl font-semibold mb-4">Send us a message</h3>
               <form>
                 <input
                   type="text"
-                  placeholder="Tu nombre"
+                  placeholder="Your name"
                   className="border rounded-lg p-2 w-full mb-4"
                   required
                 />
                 <input
                   type="email"
-                  placeholder="Tu correo electrónico"
+                  placeholder="Your email address"
                   className="border rounded-lg p-2 w-full mb-4"
                   required
                 />
                 <textarea
-                  placeholder="Tu mensaje"
+                  placeholder="Your message"
                   className="border rounded-lg p-2 w-full mb-4 h-32"
                   required
                 ></textarea>
-                <button className="bg-pink-500 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 hover:bg-pink-600">
-                  Enviar Mensaje
+                <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+                  Send Message
                 </button>
               </form>
             </div>
           </div>
 
-          {/* Mapa de ubicación (opcional) */}
           <div className="mt-12">
-            <h3 className="text-xl font-semibold mb-4">Nuestra Ubicación</h3>
+            <h2 className="text-4xl font-bold mb-8">Our Location</h2>
             <iframe
               className="w-full h-64 border rounded-lg"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345097337!2d144.95373631531815!3d-37.81720997975175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0b1e5b83%3A0xf3fdfc2bc6cbe7e1!2sCalle%20de%20la%20Belleza%20123%2C%20Ciudad%2C%20Pa%C3%ADs!5e0!3m2!1ses-419!2sus!4v1617985822272!5m2!1ses-419!2sus"
@@ -274,11 +460,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pie de página */}
-      <footer className="bg-purple-500 text-white py-6 text-center">
+      <footer className="bg-gradient-to-r from-pink-500 to-purple-500 text-white py-6 text-center">
         <p>
-          &copy; {new Date().getFullYear()} Belleza Natural. Todos los derechos
-          reservados.
+          &copy; {new Date().getFullYear()} Natural Beauty. All rights reserved.
+          reserved.
         </p>
       </footer>
     </div>
