@@ -1,7 +1,85 @@
+"use client";
 import Image from "next/image";
+import React, { useState, useRef, useEffect } from "react";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa6";
+import Carousel from './components/Carousel';
+
+const videos = [
+  /*{
+    src: "/images/IMG_1984.MP4",
+  },*/
+  {
+    src: "/images/tt1.MP4",
+  },
+  {
+    src: "/images/tt3.MP4",
+  },
+];
+
+const VideoScrollSection = () => {
+  const [currentVideo, setCurrentVideo] = useState(0);
+  const videoRef = useRef(null);
+
+  const handleVideoEnded = () => {
+    if (currentVideo < videos.length - 1) {
+      setCurrentVideo((prev) => prev + 1);
+    } else {
+      setCurrentVideo(0); // Reiniciar al primer video al final
+    }
+  };
+
+  useEffect(() => {
+    // Reinicia el video cuando cambia el índice actual
+    if (videoRef.current) {
+      videoRef.current.play(); // Cargar el nuevo video
+    }
+  }, [currentVideo]);
+
+  return (
+    <div className="relative h-screen flex items-center justify-center">
+      <video controls
+        ref={videoRef}
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop={false}
+        onEnded={handleVideoEnded}
+        key={currentVideo} // Cambia la clave para reiniciar el video
+      >
+        <source src={videos[currentVideo].src} type="video/mp4" />
+        Tu navegador no soporta el video.
+      </video>
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center">
+        <h2 className="text-5xl font-extrabold text-white drop-shadow-md">
+          {/*videos[currentVideo].title*/}
+        </h2>
+        <p className="text-xl text-white mt-4 max-w-xl leading-relaxed">
+          {/*videos[currentVideo].description*/}
+        </p>
+      </div>
+      <div className="absolute bottom-4 flex justify-between w-full px-8">
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={() => setCurrentVideo((prev) => Math.max(prev - 1, 0))}
+          disabled={currentVideo === 0}
+        >
+          Previous
+        </button>
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+          onClick={() =>
+            setCurrentVideo((prev) => Math.min(prev + 1, videos.length - 1))
+          }
+          disabled={currentVideo === videos.length - 1}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
+};
+
 
 export default function Home() {
   return (
@@ -19,7 +97,8 @@ export default function Home() {
           Iniciar Secion
         </button> */}
       </section>
-
+      {/* Video Section */}
+      <VideoScrollSection />
       {/* Sección de Productos */}
       <section className="py-16">
         <div className="container mx-auto text-center">
@@ -33,12 +112,12 @@ export default function Home() {
               }}
             >
               <img
-                src="https://via.placeholder.com/300"
-                alt="Producto 1"
+                src="/images/Moisturizer+3.jpg"
+                alt="Facial Moisturizer"
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-bold">Moisturizing Cream</h3>
+                <h3 className="text-xl font-bold">Facial Moisturizer</h3>
                 <p className="text-gray-600">$25.00</p>
                 <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
                   Add to Cart
@@ -53,12 +132,12 @@ export default function Home() {
               }}
             >
               <img
-                src="https://via.placeholder.com/300"
-                alt="Producto 2"
+                src="/images/Serum+2.jpg"
+                alt="Skin Clearing Serum"
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-bold">Serum Facial</h3>
+                <h3 className="text-xl font-bold">Skin Clearing Serum</h3>
                 <p className="text-gray-600">$30.00</p>
                 <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
                   Add to Cart
@@ -73,13 +152,33 @@ export default function Home() {
               }}
             >
               <img
-                src="https://via.placeholder.com/300"
-                alt="Producto 3"
+                src="/images/Toner+1.jpg"
+                alt="Balancing Toner"
                 className="w-full h-64 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-xl font-bold">Mascarilla Facial</h3>
+                <h3 className="text-xl font-bold">Balancing Toner</h3>
                 <p className="text-gray-600">$20.00</p>
+                <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+            {/* Producto 4 */}
+            <div
+              className="border rounded-lg shadow-lg overflow-hidden"
+              style={{
+                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
+              }}
+            >
+              <img
+                src="/images/Gift+card.jpg"
+                alt="Gift Card"
+                className="w-full h-64 object-cover"
+              />
+              <div className="p-4">
+                <h3 className="text-xl font-bold">Gift Card</h3>
+                <p className="text-gray-600">$30.00</p>
                 <button className="border border-pink-500 text-pink-500 font-semibold py-2 px-6 rounded-full bg-white transition duration-300 hover:bg-pink-500 hover:text-white">
                   Add to Cart
                 </button>
@@ -209,92 +308,7 @@ export default function Home() {
           <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 mb-8">
             Treatment Gallery
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <div
-              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={{
-                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
-              }}
-            >
-              <Image
-                src="/images/galeria1.jpg"
-                alt="Imagen 1"
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-            <div
-              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={{
-                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
-              }}
-            >
-              <Image
-                src="/images/galeria2.jpg"
-                alt="Imagen 2"
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-            <div
-              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={{
-                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
-              }}
-            >
-              <Image
-                src="/images/galeria3.jpg"
-                alt="Imagen 3"
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-            <div
-              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={{
-                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
-              }}
-            >
-              <Image
-                src="/images/galeria4.jpg"
-                alt="Imagen 4"
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-            <div
-              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={{
-                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
-              }}
-            >
-              <Image
-                src="/images/galeria4.jpg"
-                alt="Imagen 4"
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-            <div
-              className="overflow-hidden rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
-              style={{
-                boxShadow: "0 8px 20px rgba(255, 20, 147, 0.6)",
-              }}
-            >
-              <Image
-                src="/images/galeria4.jpg"
-                alt="Imagen 4"
-                width={300}
-                height={200}
-                className="rounded-lg"
-              />
-            </div>
-          </div>
+          <Carousel />
         </div>
       </section>
       <section className="py-16 bg-white text-gray-800">
@@ -365,7 +379,7 @@ export default function Home() {
                 Contact Information
               </h3>
               <p className="text-gray-600">
-                <strong>Email:</strong> contacto@bellezanatural.com
+                <strong>Email:</strong> hey@shinethcosmedic.com
               </p>
               <p className="text-gray-600">
                 <strong>Phone:</strong> (646)233-3602
@@ -403,7 +417,7 @@ export default function Home() {
                   <FaInstagram size={24} />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.tiktok.com/@shineth.cosmedic"
                   className="relative text-pink-500 hover:text-white rounded-full p-4 bg-white transition duration-500 transform hover:scale-110"
                   style={{
                     boxShadow: "0 0 15px rgba(255, 105, 180, 0.5)",
@@ -462,8 +476,7 @@ export default function Home() {
 
       <footer className="bg-gradient-to-r from-pink-500 to-purple-500 text-white py-6 text-center">
         <p>
-          &copy; {new Date().getFullYear()} Natural Beauty. All rights reserved.
-          reserved.
+          &copy; {new Date().getFullYear()} Shineth All rights reserved.
         </p>
       </footer>
     </div>
